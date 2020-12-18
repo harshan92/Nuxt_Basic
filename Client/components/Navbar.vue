@@ -7,10 +7,10 @@
 
         <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
-            <b-nav-item href="/">Home</b-nav-item>
-            <b-nav-item href="/users">Users</b-nav-item>
             
             
+            <nuxt-link to="/" class="nav-link">Home</nuxt-link>
+            <nuxt-link to="/users" class="nav-link">Users</nuxt-link>
         </b-navbar-nav>
 
         <!-- Right aligned nav items -->
