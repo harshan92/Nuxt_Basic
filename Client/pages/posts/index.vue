@@ -5,27 +5,31 @@
         
         <hr>
     </div>
-    <div class="container">
+    <div class="container row">
        
-        <h4 v-for="post in posts" :key="post.id">{{post.title}}</h4>
+        <Card v-for="post in posts" :key="post.id" :post="post"  class="mr-auto ml-auto"/>
     </div>
     </div>
 </template>
 
 <script>
 import axios from 'axios'
+import Card from '@/components/Card'
+
 export default {
     data() {
         return {
             posts:"",
         }
     },
-    asyncData() {
-       return axios.get("https://jsonplaceholder.typicode.com/todos")
-       .then(response=>{
-        //    console.log(response);
-        return {posts:response.data}
-       })
+    components:{
+        Card
+    },
+    async asyncData() {
+       let {data}=await axios.get("https://jsonplaceholder.typicode.com/todos")
+       
+        return {posts:data}
+       
     },
 }
 </script>
