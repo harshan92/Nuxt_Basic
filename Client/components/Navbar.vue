@@ -11,6 +11,7 @@
             
             <nuxt-link to="/" class="nav-link">Home</nuxt-link>
             <nuxt-link to="/users" class="nav-link">Users</nuxt-link>
+            <nuxt-link to="/posts" class="nav-link">Posts</nuxt-link>
         </b-navbar-nav>
 
         <!-- Right aligned nav items -->
