@@ -1,7 +1,8 @@
 <template>
     
     <b-navbar toggleable="lg" type="dark" variant="dark">
-        <b-navbar-brand href="#">Nuxt App</b-navbar-brand>
+        <!-- <b-navbar-brand href="#"></b-navbar-brand> -->
+        <nuxt-link to="/" class="navbar-brand">Nuxt App</nuxt-link>
 
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
