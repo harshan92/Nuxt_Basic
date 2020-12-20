@@ -22,14 +22,17 @@ export default {
             posts:"",
         }
     },
+    head:{
+        title:"List of posts"
+    },
     components:{
         Card
     },
-    async asyncData() {
-       let {data}=await axios.get("https://jsonplaceholder.typicode.com/todos")
+    async asyncData({store}) {
+       let {data}=await axios.get("https://jsonplaceholder.typicode.com/posts")
        
-        return {posts:data}
-       
+        //return {posts:data}
+       store.dispatch('setPosts', data);
     },
 }
 </script>

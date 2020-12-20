@@ -1,6 +1,6 @@
 .jumbotron{
     border-radius: 0px;
-    background-image: url("https://cdn.pixabay.com/photo/2020/12/07/12/57/landscape-5811471_960_720.jpg");
+    background-image: url("/landscape.jpg");
     height: 300px;
     background-size: cover;
 }
