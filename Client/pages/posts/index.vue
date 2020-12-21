@@ -8,6 +8,7 @@
     <div class="container row">
        
         <Card v-for="post in posts" :key="post.id" :post="post"  class="mr-auto ml-auto"/>
+        <button class="btn btn-danger" v-scroll-to="'body'">Back To Top</button>
     </div>
     </div>
 </template>
@@ -43,3 +44,4 @@ export default {
     },
 }
 </script>
+
