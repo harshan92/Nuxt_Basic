@@ -7,22 +7,18 @@ use App\Models\User;
 
 use App\Http\Requests\UserRegisterRequest;
 
+use App\Http\Resources\User as UserResource;
+
 class AuthController extends Controller
 {
-    public function register(Request  $request)
+    public function register(UserRegisterRequest $request)
     {
-        $this->validate($request, [
-            'name' => 'required|max:25',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:6'
-        ]);
-
         $user=User::create([
             'email'=>$request->input("email"),
             'name'=>$request->input("name"),
             'password'=>bcrypt($request->input("password")),
         ]);
 
-        return $user;
+        return new UserResource($user);
     }
 }
