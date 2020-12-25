@@ -38,7 +38,7 @@ class AuthController extends Controller
                 'errors'=>[
                     'error'=>["Sorry we can't find with those details."],
                 ]
-            ]);
+                ], 422);
         }
 
         return (new UserResource($request->user()))->additional([
