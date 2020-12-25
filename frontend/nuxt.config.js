@@ -42,6 +42,7 @@ export default {
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
+    
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -55,12 +56,29 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/auth',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
-  axios: {},
+  axios: {
+    baseURL:"http://127.0.0.1:8000/api/"
+  },
+
+  auth: {
+    strategies: {
+      local: {
+  
+        endpoints: {
+          login: { url: '/login', method: 'post', propertyName:"meta.token" },
+          user: { url: '/user', method: 'get' , propertyName:"data"},
+          logout: { url: '/logout', method: 'post' }
+          
+        }
+      }
+    }
+  },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
