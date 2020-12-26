@@ -30,7 +30,7 @@
         <a class="nav-link">{{user.name}}</a>
       </li>
       <li class="nav-item">
-        <nuxt-link class="nav-link" to="/logout">Logout</nuxt-link>
+        <a class="nav-link" @click.prevent="logout">Logout</a>
       </li>
     </ul>
   </template>
@@ -43,6 +43,10 @@
 <script>
 import {mapGetters} from 'vuex'
 export default {
-  
+  methods: {
+    logout(){
+      this.$auth.logout()
+    }
+  },
 }
 </script>
