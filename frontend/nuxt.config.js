@@ -1,6 +1,6 @@
 export default {
   // Target (https://go.nuxtjs.dev/config-target)
-  target: 'static',
+  target: 'universal',
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
@@ -34,6 +34,10 @@ export default {
         type: "text/javascript"
       }
     ]
+  },
+
+  router:{
+    middleware:["clearValidationErrors"]
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)

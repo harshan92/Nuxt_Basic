@@ -2,10 +2,12 @@ export default function({$axios, store}){
     $axios.onError(error=>{
         if(error.response.status===422){
             store.dispatch("validation/setErrors", error.response.data.errors);
+            return Promise.reject()
+
         }
         return Promise.reject(error)
     })
     $axios.onRequest(()=>{
-        store.dispatch("validation/setErrors");
+        store.dispatch("validation/clearErrors");
     })
 }

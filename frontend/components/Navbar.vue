@@ -27,7 +27,7 @@
   <template v-if="authenticated">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a class="nav-link">{{user.name}}</a>
+        <a class="nav-link" v-if="user.name">{{user.name}}</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" @click.prevent="logout">Logout</a>
