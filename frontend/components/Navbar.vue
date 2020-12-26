@@ -22,5 +22,17 @@
         </li>
       </ul>
   </div>
+  {{loggedIn}}
 </nav>
 </template>
+
+<script>
+import {mapGetters} from 'vuex'
+export default {
+  computed:{
+    ...mapGetters({
+      loggedIn:"auth/authenticated"
+    })
+  }
+}
+</script>
