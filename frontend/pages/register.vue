@@ -44,6 +44,7 @@
 
 <script>
 export default {
+  middleware:["guest"],
   data() {
     return {
       form: {
@@ -63,7 +64,9 @@ export default {
         },
       });
 
-      this.$router.push("/");
+      this.$router.push({
+        path:this.$route.query.redirect || "/profile"
+      });
     },
   },
 };
