@@ -4,9 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Traits;
 
 class Topic extends Model
 {
+    use Orderable;
     protected $fillable=['title'];
     // use HasFactory;
     public function user()
