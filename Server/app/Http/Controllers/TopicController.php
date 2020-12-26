@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Topic;
 use App\Models\Post;
 
+use App\Http\Resources\Topic as TopicResource;
+
 class TopicController extends Controller
 {
     public function store(Request $request)
@@ -20,5 +22,7 @@ class TopicController extends Controller
 
         $topic->save();
         $topic->posts()->save($post);
+
+        return new TopicResource($topic);
     }
 }
