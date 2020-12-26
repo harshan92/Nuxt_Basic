@@ -12,7 +12,7 @@
           class="form-control"
           placeholder="Enter email"
         />
-        <small class="form-text text-danger">Show Error</small>
+        <small class="form-text text-danger" v-if="errors.email">{{errors.email[0]}}</small>
       </div>
       <div class="form-group">
         <label>Password</label>
@@ -22,7 +22,7 @@
           class="form-control"
           placeholder="Password"
         />
-        <small class="form-text text-danger">Show Error</small>
+        <small class="form-text text-danger" v-if="errors.password">{{errors.password[0]}}</small>
       </div>
 
       <button type="submit" class="btn btn-primary">Submit</button>
