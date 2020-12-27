@@ -16,7 +16,7 @@
       </div>
       <div class="form-group">
         <label>Password</label>
-        <textarea  v-model="form.body" class="form-control" cols="30" rows="10"></textarea>
+        <textarea  v-model="form.body" class="form-control" cols="30" rows="5"></textarea>
         
         <small class="form-text text-danger" v-if="errors.body">{{errors.body[0]}}</small>
       </div>
