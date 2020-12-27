@@ -12,6 +12,11 @@ use App\Http\Resources\Topic as TopicResource;
 
 class TopicController extends Controller
 {
+    public function index()
+    {
+        $topic=Topic::latestFirst()->paginate(5);
+        return TopicResource::collection($topic);
+    }
     public function store(TopicCreateRequest $request)
     {
         $topic=new Topic;
