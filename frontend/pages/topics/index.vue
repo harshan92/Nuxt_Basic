@@ -40,7 +40,7 @@ export default {
     },
     methods: {
          async loadMore(key){
-             console.log(key);
+            if (key===null) return;
             let {data}=await this.$axios.$get(key)
             return this.topics={...this.topics, ...data}
         }
