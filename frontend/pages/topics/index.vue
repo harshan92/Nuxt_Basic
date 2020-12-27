@@ -10,6 +10,13 @@
                 <p class="text-muted">{{content.created_at}} by {{content.user.name}}</p>
             </div>
         </div>
+        <nav>
+            <ul class="pagination justify-content-center">
+                <li v-for="(key, value) in links"  class="page-item">
+                    <a @click="loadMore(key)" class="page-link">{{value}}</a>
+                </li>
+            </ul>
+        </nav>
         <!-- <pre>
             {{topics}}
         </pre> -->
@@ -20,13 +27,22 @@
 export default {
     data() {
         return {
-            topics:[]
+            topics:[],
+            links:[],
         }
     },
     async asyncData({$axios}) {
-        let {data}=await $axios.$get("/topics")
+        let {data, links}=await $axios.$get("/topics")
         return {
-            topics:data
+            topics:data,
+            links
+        }
+    },
+    methods: {
+         async loadMore(key){
+             console.log(key);
+            let {data}=await this.$axios.$get(key)
+            return this.topics={...this.topics, ...data}
         }
     },
 }
