@@ -4,7 +4,7 @@
     <br />
     <form @submit.prevent="create">
       <div class="form-group">
-        <label>Email address</label>
+        <label>Title</label>
         <input
           v-model="form.title"
           autofocus
@@ -15,7 +15,7 @@
         <small class="form-text text-danger" v-if="errors.title">{{errors.title[0]}}</small>
       </div>
       <div class="form-group">
-        <label>Password</label>
+        <label>Body</label>
         <textarea  v-model="form.body" class="form-control" cols="30" rows="5"></textarea>
         
         <small class="form-text text-danger" v-if="errors.body">{{errors.body[0]}}</small>
