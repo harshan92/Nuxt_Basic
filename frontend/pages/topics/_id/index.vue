@@ -1,9 +1,14 @@
 <template>
     <div class="container">
-        <h2>Single topic page</h2>
-        <pre>
-            {{topic}}
-        </pre>
+        <div class="bg-light mt-5 mb-5" style="padding:20px;">
+            <h2 class="display-3">{{topic.title}}</h2>
+            <p class="text-muted">{{topic.created_at}} by {{topic.user.name}}</p>
+
+            <div v-for="(content, index) in topic.posts" :key="index" class="ml-5 content">
+                {{content.body}}
+                <p class="text-muted">{{content.created_at}} by {{content.user.name}}</p>
+            </div>
+        </div>
     </div>
 </template>
 
