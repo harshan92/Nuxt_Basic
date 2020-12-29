@@ -32,4 +32,9 @@ class TopicController extends Controller
 
         return new TopicResource($topic);
     }
+
+    public function show(Topic $topic)
+    {
+        return new TopicResource($topic);
+    }
 }
