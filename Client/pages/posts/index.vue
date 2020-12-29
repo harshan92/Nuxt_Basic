@@ -36,12 +36,12 @@ export default {
         //     return this.$store.getters.posts
         // }
     },
-    // async asyncData({store}) {
-    //    let {data}=await axios.get("https://jsonplaceholder.typicode.com/posts")
+    async asyncData({store}) {
+       let {data}=await axios.get("https://jsonplaceholder.typicode.com/posts")
        
-    //     //return {allPosts:data}
-    //    store.dispatch('setPosts', data);
-    // },
+        //return {allPosts:data}
+       store.dispatch('setPosts', data);
+    },
 }
 </script>
 
