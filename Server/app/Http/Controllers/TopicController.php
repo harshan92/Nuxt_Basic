@@ -46,4 +46,11 @@ class TopicController extends Controller
         $topic->save();
         return new TopicResource($topic);
     }
+
+    public function destroy(Topic $topic)
+    {
+        $this->authorize("destroy", $topic);
+        $topic->delete();
+        return response(null, 204);
+    }
 }
