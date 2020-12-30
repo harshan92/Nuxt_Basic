@@ -5,7 +5,15 @@
             <p class="text-muted">{{topic.created_at}} by {{topic.user.name}}</p>
 
             <div v-for="(content, index) in topic.posts" :key="index" class="ml-5 content">
-                {{content.body}}
+                <p>{{content.body}}</p>
+                <div v-if="authenticated">
+                <div v-if="user.id===content.user.id">
+                    <nuxt-link :to="{name:'topics-posts-edit', params:{id:content.id}}">
+                        <button class="btn btn-outline-success fa fa-edit  pull-right"></button>
+                    </nuxt-link>
+                    <button @click="deletePost(content.id)" class="btn btn-outline-danger fa fa-trash  pull-right"></button>
+                </div>
+            </div>
                 <p class="text-muted">{{content.created_at}} by {{content.user.name}}</p>
             </div>
         </div>
@@ -41,7 +49,22 @@ export default {
             await this.$axios.$post(`/topics/${this.$route.params.id}/posts`,{body:this.body})
             this.$router.push('/topics')
 
+        },
+        async deletePost(id){
+            await this.$axios.$delete(`/topics/${this.$route.params.id}/posts/${id}`)
+            this.$router.push('/topics')
         }
     },
 }
 </script>
+
+<style scoped>
+    .content{
+        border-left:10px solid white;
+        padding: 0 10px 0 10px;
+    }
+
+    .btn-outline-danger,  .btn-outline-success{
+        border: none;
+    }
+</style>
