@@ -12,6 +12,10 @@ use App\Http\Requests\UpdatePostRequest;
 use App\Http\Resources\Post as PostResource;
 class PostController extends Controller
 {
+    public function show(Request $request, Topic $topic, Post $post)
+    {
+        return new PostResource($post);
+    }
     public function store(StorePostRequest $request, Topic $topic)
     {
         $post=new Post;
