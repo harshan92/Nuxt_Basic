@@ -8,7 +8,7 @@
                 <p>{{content.body}}</p>
                 <div v-if="authenticated">
                 <div v-if="user.id===content.user.id">
-                    <nuxt-link :to="{name:'topics-posts-edit', params:{id:content.id}}">
+                    <nuxt-link :to="{name:'topics-posts-edit', params:{id:$route.params.id, body:content.id}}">
                         <button class="btn btn-outline-success fa fa-edit  pull-right"></button>
                     </nuxt-link>
                     <button @click="deletePost(content.id)" class="btn btn-outline-danger fa fa-trash  pull-right"></button>
